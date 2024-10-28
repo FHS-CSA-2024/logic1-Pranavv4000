@@ -107,13 +107,13 @@ public class Logic1
     
     public boolean specialEleven(int n){
         if (n%11 == 0 ){
-        	return true;
-	  }
+            return true;
+      }
         else if(n%11 == 1 ){
-		 return true;
-	  } else{
-		 return false;
-	  }
+         return true;
+      } else{
+         return false;
+      }
     }
 
 
@@ -142,7 +142,13 @@ public class Logic1
     less20(59) --> true
     less20(20) --> false */
     public boolean less20(int n) {
-      
+      if (n%20 == 19) {
+          return true; 
+      } else if (n%20 == 18) {
+          return true; 
+      } else{
+          return false; 
+      }
     }
 
     /*Given a non-negative number "num", return true if num is within 2 of a multiple of 10. 
@@ -153,11 +159,16 @@ public class Logic1
     nearTen(17) --> false
     nearTen(19) --> true */
     public boolean nearTen(int num) {
-      
+      if(num%10 == 0 || num%10 == 2 || num%10 == 1|| num%10 == 9 || num%10 == 8){
+        return true;
+        }
+      else{
+        return false;  
+      }
     }
 
 
-    /*Given 2 ints, a and b, return their sum. 
+        /*Given 2 ints, a and b, return their sum. 
     However, sums in the range 10..19 inclusive, are forbidden, 
         so in that case just return 20.
 
@@ -166,7 +177,12 @@ public class Logic1
     sortaSum(9, 4) --> 20
     sortaSum(10, 11) --> 21*/
     public int sortaSum(int a, int b) {
-      
+      int sum = a+b;
+      if(sum>=10 && sum <=19){
+          return 20;
+
+      }
+      return sum;
     }
 
 
@@ -259,7 +275,7 @@ public class Logic1
     teaParty(3, 8) --> 0
     teaParty(20, 6) --> 2 */
     public int teaParty(int tea, int candy) {
-      
+       ;
     }
 
 
