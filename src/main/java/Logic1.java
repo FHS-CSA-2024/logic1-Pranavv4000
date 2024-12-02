@@ -1,6 +1,7 @@
 package src.main.java;
 
 
+
 public class Logic1
 {
     public static void main(String[] args){
@@ -89,10 +90,13 @@ public class Logic1
             
         }else if(n%3 == 0){
             return true;
+            
         }else if(n%5 == 0){
             return true;
+            
         }else {
             return false;
+            
         }
     }
 
