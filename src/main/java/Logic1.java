@@ -111,8 +111,10 @@ public class Logic1
       }
         else if(n%11 == 1 ){
          return true;
+         
       } else{
          return false;
+         
       }
     }
 
@@ -126,10 +128,13 @@ public class Logic1
     public boolean more20(int n) {
       if (n%20 == 1){
           return true;
+          
       } else if(n%20 == 2){
           return true;
+          
       } else{
           return false;
+          
       }
     }
 
@@ -144,10 +149,13 @@ public class Logic1
     public boolean less20(int n) {
       if (n%20 == 19) {
           return true; 
+          
       } else if (n%20 == 18) {
           return true; 
+          
       } else{
           return false; 
+          
       }
     }
 
@@ -161,9 +169,11 @@ public class Logic1
     public boolean nearTen(int num) {
       if(num%10 == 0 || num%10 == 2 || num%10 == 1|| num%10 == 9 || num%10 == 8){
         return true;
+        
         }
       else{
         return false;  
+        
       }
     }
 
@@ -183,6 +193,7 @@ public class Logic1
 
       }
       return sum;
+      
     }
 
 
@@ -195,7 +206,17 @@ public class Logic1
     in1To10(11, false) --> false
     in1To10(11, true) --> true */
     public boolean in1To10(int n, boolean outsideMode) {
-      
+      if(n>0 && n<11){
+          return true;
+          
+      }
+      else{
+          if(outsideMode = true)
+          return true;
+          
+        }
+        
+        return false;
     }
 
 
@@ -207,9 +228,14 @@ public class Logic1
     teenSum(10, 13) --> 19
     teenSum(13, 2) --> 19 */
     public int teenSum(int a, int b) {
-      
-    }
-
+      int sum= a+b;
+      if ((a>=13 && a<=19 || b>=13 && b<= 19)){
+            return 19;
+            
+        }
+    return sum;
+    
+    }   
 
     /*The number 6 is a truly great number. Given two int values, a and b, 
         return true if either one is 6. Or if their sum or difference is 6. 
@@ -220,6 +246,12 @@ public class Logic1
     love6(4, 5) --> false
     love6(1, 5) --> true */
     public boolean love6(int a, int b) {
+      int sum =a+b;
+      int diff=Math.abs(a-b);
+      if (a==6 || b==6 || sum==6 || diff==6){
+          return true;
+      }
+      return false;
       
     }
 
@@ -233,6 +265,14 @@ public class Logic1
     lastDigit(23, 19, 12) --> false
     lastDigit(23, 19, 3) --> true */
     public boolean lastDigit(int a, int b, int c) {
+      int finalA = a%10;
+      int finalB = b%10;
+      int finalC = c%10;
+      if (finalA == finalB || finalA == finalC || finalC == finalB){
+          return true;
+          
+      }
+      return false;
       
     }
 
@@ -246,9 +286,18 @@ public class Logic1
     answerCell(false, false, true) --> false
     answerCell(true, false, false) --> false */
     public boolean answerCell(boolean isMorning, boolean isMom, boolean isAsleep) {
+      if (isMom == true && isMorning == true){
+          return true;
+          
+      }else if (isAsleep == true){
+          return false;
+          
+      }else{
+      return true;
       
     }
-
+    }   
+    
     /*Given a day of the week encoded as 0=Sun, 1=Mon, 2=Tue, ...6=Sat, 
         and a boolean indicating if we are on vacation, 
     return a string of the form "7:00" indicating when the alarm clock should ring. 
@@ -260,11 +309,30 @@ public class Logic1
     alarmClock(5, false) --> "7:00"
     alarmClock(0, false) --> "10:00" */
     public String alarmClock(int day, boolean vacation) {
-      
+      if (0 < day && day < 6){
+        if (vacation == true){
+          return "10:00";  
+          
+        }
+        else{
+          return "7:00"; 
+          
+        }
+      }
+      else{
+        if(vacation == true){
+          return "off";  
+          
+        }
+        else{
+          return "10:00";  
+          
+        }
+      }
     }
 
 
-    /*We are having a party with amounts of tea and candy. 
+        /*We are having a party with amounts of tea and candy. 
     Return the int outcome of the party encoded as 0=bad, 1=good, or 2=great. 
     A party is good (1) if both tea and candy are at least 5. 
     However, if either tea or candy is at least double the amount of the other one, the party is great (2). 
@@ -275,7 +343,17 @@ public class Logic1
     teaParty(3, 8) --> 0
     teaParty(20, 6) --> 2 */
     public int teaParty(int tea, int candy) {
-       ;
+       if (tea<5 || candy<5){
+	    return 0;
+	    
+	  }else if (candy >= tea * 2 || tea >= candy * 2){
+	    return 2;
+	    
+	  }
+	  else{
+	  return 1;
+	  
+	}
     }
 
 
@@ -290,7 +368,19 @@ public class Logic1
     redTicket(2, 2, 1) --> 0
     redTicket(0, 0, 0) --> 5 */
     public int redTicket(int a, int b, int c) {
-      
+       if ( a == 2 && b == 2 && c == 2) {
+          return 10; 
+          
+      } else if (a == b && b == c && a == c) {
+          return 5;
+          
+        } else if (b != a && c != a) {
+            return 1; 
+            
+        } else {
+            return 0; 
+            
+        }
     }
 
 
@@ -304,8 +394,20 @@ public class Logic1
     greenTicket(2, 2, 2) --> 20
     greenTicket(1, 1, 2) --> 10 */
     public int greenTicket(int a, int b, int c) {
-      
+      if(a == b && b == c){
+         return 20;
+         
+      }
+      else if(a == c || b == c || b == a){
+          return 10;
+          
+      }
+      else{
+          return 0;
+          
+      }
     }
+    
 
 
     /*
@@ -320,7 +422,16 @@ public class Logic1
     squirrelPlay(95, false) --> false
     squirrelPlay(95, true) --> true    */
     public boolean squirrelPlay(int temp, boolean isSummer) {
-  
+      if (isSummer == true && temp >= 60 && temp <= 100) {
+      return true; 
+      
+    } else if (isSummer == false && temp >= 60 && temp <=90 ){
+        return true; 
+        
+    } else {
+        return true; 
+        
+    }
     }
 
 
@@ -337,8 +448,31 @@ public class Logic1
     caughtSpeeding(65, false) --> 1
     caughtSpeeding(65, true) --> 0    */
     public int caughtSpeeding(int speed, boolean isBirthday) {
-      
+       if (isBirthday == false){
+              if (speed <= 60){
+                return 0;
+                
+        }else if ((speed >= 61) && (speed <= 80)){
+                return 1;
+                
+            } else {
+                return 2;
+                
+            }
+        }else {
+            if (speed <= 65){
+                return 0;
+                
+            } else if ((speed >= 66) && (speed <= 85)){
+                return 1;
+                
+            } else {
+                return 2;
+                
+            }
+        }
     }
+        
 
 
     /*
@@ -354,7 +488,19 @@ public class Logic1
     dateFashion(5, 2) --> 0
     dateFashion(5, 5) --> 1    */
     public int dateFashion(int you, int date) {
-      
+      if(you >= 8 || date >= 8){
+          return 2;
+          
+    }
+    else if(you <= 2 || date <= 2){
+          return 0;
+          
+    }
+    
+        else{
+          return 1;
+          
+      }
     }
     
     
@@ -369,9 +515,24 @@ public class Logic1
     fizzString2(3) --> "Fizz!"
     fizzString2(15) --> "FizzBuzz!"*/
     public String fizzString2(int n) {
-  
+      if (n%3 == 0 && n%5 == 0){
+            return "FizzBuzz!";
+            
     }
-
+    else if (n%5 == 0){
+            return "Buzz!";
+            
+    }
+    else if (n%3 == 0) {
+          return"Fizz!";
+          
+    }
+    else {
+          return n + "!";
+          
+    }
+    }
+    
     /*When squirrels get together for a party, they like to have sodas. 
     A squirrel party is successful when the number of sodas is between 40 and 60, inclusive. 
     Unless it is the weekend, in which case there is no upper bound on the number of sodas. 
@@ -382,7 +543,24 @@ public class Logic1
     sodaParty(50, false) --> true
     sodaParty(70, true) --> true */
     public boolean sodaParty(int sodas, boolean isWeekend) {
-  
+      if (isWeekend == true){
+         if (sodas >= 40){
+                return true;
+                
+            }
+        else   {
+            return false;
+            
+        }
     }
-
+    else {
+        if (sodas >= 40 && sodas <= 60){
+            return true;
+        
+    }
+    else {
+        return false;
+    }
+    }
+    }
 }
