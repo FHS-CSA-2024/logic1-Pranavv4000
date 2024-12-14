@@ -210,18 +210,16 @@ public class Logic1
     in1To10(11, false) --> false
     in1To10(11, true) --> true */
     public boolean in1To10(int n, boolean outsideMode) {
-      if(n>0 && n<11){
-          return true;
-          
-      }
-      else{
-          if(outsideMode = true)
-          return true;
-          
-        }
-        
-        return false;
+  if (!outsideMode && n >= 1 && n <= 10){
+    return true;
+  }else if (outsideMode) {
+    if (n <= 1 || n >= 10){
+      return true;
     }
+  }
+  return false;
+    }
+
 
 
     /*Given 2 ints, a and b, return their sum. However, "teen" values in the range 
@@ -290,17 +288,20 @@ public class Logic1
     answerCell(false, false, true) --> false
     answerCell(true, false, false) --> false */
     public boolean answerCell(boolean isMorning, boolean isMom, boolean isAsleep) {
-      if (isMom == true && isMorning == true){
-          return true;
-          
-      }else if (isAsleep == true){
-          return false;
-          
-      }else{
-      return true;
-      
+  if (isAsleep){
+    return false;
+  }
+  else if (!isMorning){
+    return true;
+  }
+  else if (isMom) {
+    return true;
+  }
+  else {
+    return false;
+  }
+  
     }
-    }   
     
     /*Given a day of the week encoded as 0=Sun, 1=Mon, 2=Tue, ...6=Sat, 
         and a boolean indicating if we are on vacation, 
@@ -348,16 +349,16 @@ public class Logic1
     teaParty(20, 6) --> 2 */
     public int teaParty(int tea, int candy) {
        if (tea<5 || candy<5){
-	    return 0;
-	    
-	  }else if (candy >= tea * 2 || tea >= candy * 2){
-	    return 2;
-	    
-	  }
-	  else{
-	  return 1;
-	  
-	}
+        return 0;
+        
+      }else if (candy >= tea * 2 || tea >= candy * 2){
+        return 2;
+        
+      }
+      else{
+      return 1;
+      
+    }
     }
 
 
@@ -426,15 +427,10 @@ public class Logic1
     squirrelPlay(95, false) --> false
     squirrelPlay(95, true) --> true    */
     public boolean squirrelPlay(int temp, boolean isSummer) {
-      if (isSummer == true && temp >= 60 && temp <= 100) {
-      return true; 
-      
-    } else if (isSummer == false && temp >= 60 && temp <=90 ){
-        return true; 
-        
+    if (isSummer) {
+        return temp <= 100 && temp >= 60;
     } else {
-        return true; 
-        
+        return temp <= 90 && temp >= 60;
     }
     }
 
